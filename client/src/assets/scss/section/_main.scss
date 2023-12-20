@@ -1,0 +1,121 @@
+#port_Wrap {
+    height: 100vh;
+    background-color: #272F2E;
+    padding: 1% 1.5%;
+
+    #haeder {
+        display: flex;
+        justify-content: left;
+        height: 35px;
+        font-weight: 300;
+
+        h3 {
+            font-size: 16px;
+            color: #fff;
+            margin-right: 4vw;
+        }
+
+        div {
+            margin-right: 4vw;
+            transition: all 0.6s;
+
+            ul {
+                display: flex;
+                color: #7EA6E3;
+
+                li {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        :hover {
+            color: #5fc28f;
+        }
+
+        .connect {
+            ul {
+                li {
+                    font-weight: 300;
+                    color: #fff;
+                }
+            }
+        }
+
+        .nav {
+            font-family: 'nanumSquareNeo';
+
+            ul {
+                li {
+                    font-weight: 300;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    #main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .intro {
+            margin-top: 1%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            background: linear-gradient(to right, #41CF85, #255DCF);
+            -webkit-background-clip: text;
+            justify-content: space-between;
+            color: transparent;
+            font-size: 9.5vw;
+            line-height: 0.9;
+
+
+            .regular {
+                font-weight: 300;
+            }
+
+            .thin {
+                font-weight: 100;
+            }
+
+            .intro_img {
+                cursor: pointer;
+                margin: 5px 20px 0;
+                flex: 1;
+                min-width: 20%;
+                max-width: 60%;
+                height: 7vw;
+                background-color: #41CF85;
+                border-radius: 100px;
+                background-position: center center;
+                background-size: cover;
+            }
+
+            .img01 {
+                background-image: url(../../img/work01.png);
+            }
+
+            .img02 {
+                background-image: url(../../img/work02.png);
+            }
+
+            .img03 {
+                background-image: url(../../img/work03.png);
+            }
+
+            .img04 {
+                background-image: url(../../img/work04.png);
+            }
+
+            .img05 {
+                background-image: url(../../img/work05.png);
+            }
+
+            .img06 {
+                background-image: url(../../img/work06.png);
+            }
+        }
+    }
+}
