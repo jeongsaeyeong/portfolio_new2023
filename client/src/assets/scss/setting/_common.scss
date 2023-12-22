@@ -9,7 +9,6 @@ main {
 
 // 섹션 공통 요소
 section {
-    padding: 40px;
 
     @media (max-width: 800px) {
         padding: 20px;
@@ -67,4 +66,12 @@ section {
     border: 1px solid #000;
     background-color: #fff;
     padding: 10px;
+}
+
+.none {
+    display: none;
+}
+
+button {
+    cursor: pointer;
 }

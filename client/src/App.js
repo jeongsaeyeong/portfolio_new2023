@@ -1,10 +1,10 @@
 import React from 'react'
-import Main from './pages/Main'
+import Port from './pages/Port'
 
 const App = () => {
   return (
     <>
-      <Main />
+      <Port />
     </>
   )
 }

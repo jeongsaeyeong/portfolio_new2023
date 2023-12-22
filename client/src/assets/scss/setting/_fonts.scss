@@ -87,3 +87,75 @@
     font-style: normal;
     font-display: swap;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@100;200;300;400;500;600;700&display=swap');
+
+@font-face {
+    font-family: "PartizenoRegular";
+    src: url("../../fonts/PartizenoRegular.woff2") format("woff2"),
+        url("../../fonts/PartizenoRegular.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IropkeBatang';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/iropke/IropkeBatang.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/iropke/IropkeBatang.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/iropke/IropkeBatang.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/iropke/IropkeBatang.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/iropke/IropkeBatang.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GmarketSans';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSansLight.ttf') format("truetype");
+    font-display: swap;
+}
+
+// mapo
+
+@font-face {
+    font-family: 'MapoDPP';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/mapo/MapoDPP.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/mapo/MapoDPP.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/mapo/MapoDPP.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/mapo/MapoDPP.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/mapo/MapoDPP.ttf') format("truetype");
+    font-display: swap;
+}
+
+// pacifico
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poiret+One&display=swap');
+
+// cafe 
+
+@font-face {
+    font-family: 'Cafe24Danjunghae';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Danjunghae.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Eros Romano';
+    src: url('../../fonts/ErosRomanoRegular.eot');
+    src: url('../../fonts/ErosRomanoRegular.woff2') format('woff2'),
+        url('../../fonts/ErosRomanoRegular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
