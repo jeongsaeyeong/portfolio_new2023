@@ -47,6 +47,9 @@ const Port = () => {
         <>
             <div id="section1">
                 <div className={currentSection === 'first' ? 'first' : 'first none'}>
+                    {/* <header>
+                        <p>PortFolio</p>
+                    </header> */}
                     <div className="center__text">
                         <div className="split t1"><span>DIG</span> WHERE THE</div>
                         <div className="split t2">GOLD<span>IS UNLESS</span></div>
