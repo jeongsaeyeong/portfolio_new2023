@@ -1105,7 +1105,6 @@
     display: flex;
     align-content: center;
     flex-wrap: wrap;
-    display: none;
 
     .comment_wrap {
         width: 380px;
@@ -1142,8 +1141,9 @@
         }
 
         .list {
+            overflow: auto;
             padding: 30px 20px;
-            height: 80%;
+            height: 75%;
             border-bottom: 1px solid #454545;
 
             .chatbox {
@@ -1151,8 +1151,21 @@
 
                 p {
                     background-color: #f1f1f1;
-                    padding: 15px 20px;
+                    padding: 15px;
                     max-width: 60%;
+                    font-family: 'nanumSquareNeo';
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    button {
+                        transform: translateY(-50%);
+                        margin-left: 5px;
+                        text-align: right;
+                        font-size: 14px;
+                        font-family: 'nanumSquareNeo';
+                        background-color: #00000000;
+                    }
                 }
 
                 .left {
@@ -1171,40 +1184,102 @@
         }
 
         .push {
-            height: 10%;
+            height: 15%;
             position: relative;
 
-            input {
-                overflow: hidden;
-                padding: 10px;
-                color: #fff;
-                outline: none;
-                background-color: #00000000;
-                width: 78%;
+            .write {
                 height: 100%;
-                border-bottom: 1px solid #454545;
-                flex-wrap: wrap;
                 display: flex;
-                padding-right: 10px;
+                flex-wrap: wrap;
+
+                >div {
+                    width: 75%;
+
+                    input {
+                        width: 100%;
+                        font-family: 'nanumSquareNeo';
+                        overflow: hidden;
+                        padding: 10px;
+                        color: #fff;
+                        outline: none;
+                        background-color: #00000000;
+                        height: 50%;
+                        flex-wrap: wrap;
+                        display: flex;
+                        padding-left: 15px;
+                    }
+                }
+
+                button {
+                    font-family: 'nanumSquareNeo';
+                    border: 0;
+                    width: 25%;
+                    height: 100%;
+                }
             }
 
-            button {
-                font-family: 'nanumSquareNeo';
-                top: 50%;
-                right: 10px;
+            .delete {
                 position: absolute;
-                border: 1px solid #d4d4d4;
-                background-color: #00000000;
-                width: 70px;
-                height: 30px;
-                border-radius: 10px;
-                color: #d4d4d4;
-                transform: translatey(-50%);
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+
+                input {
+                    width: 75%;
+                    font-family: 'nanumSquareNeo';
+                    overflow: hidden;
+                    padding: 10px;
+                    color: #fff;
+                    outline: none;
+                    background-color: #00000000;
+                    height: 100%;
+                    flex-wrap: wrap;
+                    display: flex;
+                    padding-left: 15px;
+                }
+
+                div {
+                    width: 25%;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    button {
+                        font-family: 'nanumSquareNeo';
+                        width: 100%;
+                        border: 0;
+                        height: 50%;
+                    }
+                }
+            }
+
+            input.show {
+                display: flex;
+            }
+
+            input.none {
+                display: none;
+            }
+
+            .none {
+                display: none;
+            }
+
+            ::placeholder {
+                font-size: 14px;
+            }
+
+            #password {
+                border-bottom: 1px solid #afafaf;
             }
         }
     }
 }
 
+#section3.none {
+    display: none;
+}
 
 @media (max-width: 1200px) {
     #section2 {
@@ -1453,4 +1528,19 @@
         bottom: 0;
         height: 50vh;
     }
+}
+
+// 스크롤바 
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000d2;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
 }
