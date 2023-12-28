@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import gsap from 'gsap';
-import axios from 'axios';
+import Portbutton from '../components/Etc/Portbutton'
+import Reple from '../components/Reple';
+import Overlay from '../components/Etc/Overlay';
 
 const Port = () => {
     // GSAP 용
@@ -150,119 +152,11 @@ const Port = () => {
         }, 800)
     }
 
-    // 토글메뉴...인데 좀 고려를,, 수정을,, 
-    const toggleMenu = (e) => {
-        e.preventDefault();
-
-        const ulElements = document.querySelectorAll('.ham div ul');
-
-        ulElements.forEach((ulElement) => {
-            ulElement.style.display = ulElement.style.display === 'block' ? 'none' : 'block';
-        });
-    };
-
-    // const Split = () => {
-    //     const splitText = (element) => {
-    //         const text = element.textContent;
-    //         const words = text.split(' ');
-
-    //         element.innerHTML = '';
-
-    //         words.forEach((word, index) => {
-    //             const wordWrapper = document.createElement('div');
-
-    //             const characters = word.split('');
-    //             characters.forEach((char) => {
-    //                 const charSpan = document.createElement('span');
-    //                 charSpan.textContent = char;
-    //                 wordWrapper.appendChild(charSpan);
-    //             });
-
-    //             if (index < words.length - 1) {
-    //                 wordWrapper.innerHTML += ' ';
-    //             }
-
-    //             element.appendChild(wordWrapper);
-    //         });
-    //     };
-
-    //     const applySplit = (className) => {
-    //         const elements = document.querySelectorAll(`.${className}`);
-    //         elements.forEach((element) => splitText(element));
-    //     };
-
-    //     applySplit('t1');
-    //     applySplit('t2');
-    //     applySplit('t3');
-    //     applySplit('t4');
-    // };
-
-
     const Repleshow = () => {
         gsap.to('#section3', { height: "100vh", y: "0", opacity: 1, duration: 1, display: "flex" })
     }
 
-    const Replehide = () => {
-        gsap.to('#section3', { height: "0", y: "0", opacity: 0, duration: 1, display: "none" })
-    }
-
-    // 댓글
-    const [content, setContent] = useState('');
-    const [password, setPassword] = useState('');
-
-    // 댓글 제출 
-    const onSubmit = (e) => {
-        e.preventDefault();
-
-        if (content === "" && password === "") {
-            return alert("빈칸을 모두 채워주세요!")
-        }
-
-        let body = {
-            content: content,
-            password: password
-        }
-
-        axios.post("/api/reple/submit", body)
-            .then((res) => {
-                if (res.data.success) {
-                    alert("댓글 작성이 완료되었습니다.")
-                } else {
-                    alert("댓글 작성이 실패하였습니다.")
-                }
-            })
-            .catch((err) => {
-                console.error(err);
-                alert("댓글 작성 중 에러가 발생했습니다.");
-            });
-    }
-
-    // 댓글 불러오기
-    const [list, setList] = useState([]);
-
-    useEffect(() => {
-        axios.post("/api/reple/list")
-            .then((res) => {
-                console.log(res)
-                if (res.data.success) {
-                    setList([...res.data.list]);
-                }
-            })
-            .catch((err) => {
-                alert("요청 실패~")
-                console.log(err)
-            })
-    }, []);
-
-    // 댓글 삭제 
-
     const [show, setShow] = useState(false);
-    const [deletepassword, setDeletepassword] = useState('');
-
-    const onDelete = (e) => {
-
-    }
-
 
     return (
         <>
@@ -334,12 +228,7 @@ const Port = () => {
                 </div>
             </div>
 
-            <div className="overlayup"></div>
-            <div className="overlaydown"></div>
-            <div className={black === 'black' ? 'black' : 'black none'}>
-                <div className="up"></div>
-                <div className="down"></div>
-            </div>
+            <Overlay black={black} />
 
             <div id='section2' className={none === 'none' ? 'none' : 'block'}>
                 <div className={currentPort === 'port01' ? 'port01' : 'port01 none'}>
@@ -351,22 +240,7 @@ const Port = () => {
                                     onClick={() => { Repleshow() }}
                                 >Reple</button>
                             </div>
-                            <div className='button'>
-                                <ul>
-                                    <li><a href="/">SITE</a></li>
-                                    <li><a href="/">GITHUB</a></li>
-                                    <li><a href="/">NOTION</a></li>
-                                </ul>
-                            </div>
-                            <div className="ham" onClick={(e) => toggleMenu(e)}>
-                                <div>
-                                    <ul>
-                                        <li><a href="/">SITE</a></li>
-                                        <li><a href="/">GITHUB</a></li>
-                                        <li><a href="/">NOTION</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <Portbutton />
                         </div>
                         <div className="main">
                             <h2>ADD PLUS</h2>
@@ -387,22 +261,7 @@ const Port = () => {
 
                                 >Reple</button>
                             </div>
-                            <div className='button'>
-                                <ul>
-                                    <li><a href="/">SITE</a></li>
-                                    <li><a href="/">GITHUB</a></li>
-                                    <li><a href="/">NOTION</a></li>
-                                </ul>
-                            </div>
-                            <div className="ham" onClick={(e) => toggleMenu(e)}>
-                                <div>
-                                    <ul>
-                                        <li><a href="/">SITE</a></li>
-                                        <li><a href="/">GITHUB</a></li>
-                                        <li><a href="/">NOTION</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <Portbutton />
                         </div>
                         <div className="main">
                             <h2>ADD PLUS</h2>
@@ -423,22 +282,7 @@ const Port = () => {
 
                                 >Reple</button>
                             </div>
-                            <div className='button'>
-                                <ul>
-                                    <li><a href="/">SITE</a></li>
-                                    <li><a href="/">GITHUB</a></li>
-                                    <li><a href="/">NOTION</a></li>
-                                </ul>
-                            </div>
-                            <div className="ham" onClick={(e) => toggleMenu(e)}>
-                                <div>
-                                    <ul>
-                                        <li><a href="/">SITE</a></li>
-                                        <li><a href="/">GITHUB</a></li>
-                                        <li><a href="/">NOTION</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <Portbutton />
                         </div>
                         <div className="main">
                             <h2>ADD PLUS</h2>
@@ -459,22 +303,7 @@ const Port = () => {
 
                                 >Reple</button>
                             </div>
-                            <div className='button'>
-                                <ul>
-                                    <li><a href="/">SITE</a></li>
-                                    <li><a href="/">GITHUB</a></li>
-                                    <li><a href="/">NOTION</a></li>
-                                </ul>
-                            </div>
-                            <div className="ham" onClick={(e) => toggleMenu(e)}>
-                                <div>
-                                    <ul>
-                                        <li><a href="/">SITE</a></li>
-                                        <li><a href="/">GITHUB</a></li>
-                                        <li><a href="/">NOTION</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <Portbutton />
                         </div>
                         <div className="main">
                             <h2>ADD PLUS</h2>
@@ -495,22 +324,7 @@ const Port = () => {
 
                                 >Reple</button>
                             </div>
-                            <div className='button'>
-                                <ul>
-                                    <li><a href="/">SITE</a></li>
-                                    <li><a href="/">GITHUB</a></li>
-                                    <li><a href="/">NOTION</a></li>
-                                </ul>
-                            </div>
-                            <div className="ham" onClick={(e) => toggleMenu(e)}>
-                                <div>
-                                    <ul>
-                                        <li><a href="/">SITE</a></li>
-                                        <li><a href="/">GITHUB</a></li>
-                                        <li><a href="/">NOTION</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <Portbutton />
                         </div>
                         <div className="main">
                             <h2>ADD PLUS</h2>
@@ -524,86 +338,7 @@ const Port = () => {
             </div>
 
             <div id="section3">
-                <div className="comment_wrap">
-                    <div className="top">
-                        <h2>Comment</h2>
-                        <button
-                            onClick={() => { Replehide() }}
-                        >x</button>
-                    </div>
-                    <div className="list">
-                        {list.map((item, key) => {
-                            const isLeft = item.repleNum % 2 === 1;
-
-                            return (
-                                <div className={isLeft ? "chatbox boxleft" : "chatbox boxright"} key={key}>
-                                    <p className={isLeft ? 'left' : 'right'}>
-                                        {item.content}
-                                        <button
-                                            onClick={() => setShow(!show)}
-                                        >x</button>
-
-                                    </p>
-                                </div>
-                            );
-                        })}
-                    </div>
-                    <div className="push">
-
-                        <div className="write">
-                            <div>
-                                <input
-                                    type="text"
-                                    id='password'
-                                    value={password}
-                                    placeholder='비밀번호를 입력해주세요'
-                                    onChange={(e) => {
-                                        setPassword(e.currentTarget.value)
-                                    }}
-                                />
-                                <input
-                                    type="text"
-                                    id='content'
-                                    value={content}
-                                    placeholder='내용을 입력해주세요'
-                                    onChange={(e) => {
-                                        setContent(e.currentTarget.value)
-                                    }}
-                                />
-                            </div>
-
-                            <button
-                                onClick={(e) => {
-                                    onSubmit(e);
-                                }}
-                            >SEND</button>
-                        </div>
-
-                        <div className={`delete ${show ? 'show' : 'none'}`}>
-                            <input
-                                type="text"
-                                id='deletepassword'
-                                value={deletepassword}
-                                placeholder='비밀번호를 입력해주세요'
-                                onChange={(e) => {
-                                    setDeletepassword(e.currentTarget.value)
-                                }}
-                            />
-                            <div>
-                                <button
-                                    onClick={(e) => {
-                                        onDelete(e);
-                                    }}
-                                >SEND</button>
-
-                                <button
-                                    onClick={() => { setShow(false) }}
-                                >NOPE</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                <Reple />
             </div>
         </>
     )
