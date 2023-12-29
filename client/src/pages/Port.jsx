@@ -3,6 +3,9 @@ import gsap from 'gsap';
 import Portbutton from '../components/Etc/Portbutton'
 import Reple from '../components/Reple';
 import Overlay from '../components/Etc/Overlay';
+import SplitType from 'split-type'
+
+<script src="https://unpkg.com/split-type"></script>
 
 const Port = () => {
     // GSAP 용
@@ -50,6 +53,16 @@ const Port = () => {
         gsap.set(".push div button", { backgroundColor: chatcolor, color: textcolor })
         gsap.set(".push input", { color: textcolor })
         gsap.set("#deletepassword", { backgroundColor: color })
+
+        const targets = gsap.utils.toArray(".split");
+
+        targets.forEach(target => {
+            let SplitClient = new SplitType(target, { type: "lines, words, chars" });
+            let lines = SplitClient.lines;
+            let words = SplitClient.words;
+            let chars = SplitClient.chars;
+        })
+
     }, [color]);
 
     // port 들어가기 
@@ -158,15 +171,17 @@ const Port = () => {
 
     const [show, setShow] = useState(false);
 
+
+
     return (
         <>
             <div id="section1">
                 <div className={currentSection === 'first' ? 'first' : 'first none'}>
                     <div className="center__text">
-                        <div className="split t1"><span>DIG</span> WHERE THE</div>
-                        <div className="split t2">GOLD<span>IS UNLESS</span></div>
-                        <div className="split t3"><span>YOU</span> NEED<span></span></div>
-                        <div className="split t4"> SOME<span>EXERCISE</span></div>
+                        <div className="split t1">DIG WHERE THE</div>
+                        <div className="split t2">GOLDIS UNLESS</div>
+                        <div className="split t3">YOU NEED</div>
+                        <div className="split t4"> SOME EXERCISE</div>
                         <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>youtube</span></div></div>
                         <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
                         <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>youtube</span></div></div>

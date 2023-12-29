@@ -24,6 +24,7 @@
     "react-scripts": "5.0.1",
     "sass": "^1.69.5",
     "split-text": "^1.0.0",
+    "split-type": "^0.3.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
