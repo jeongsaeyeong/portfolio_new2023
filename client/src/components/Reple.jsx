@@ -1,8 +1,28 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { slide, curve } from '../js/anim'; 
 import gsap from 'gsap';
+import { motion } from 'framer-motion';
 
 const Reple = () => {
+
+    const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight/2} 100 0`
+    const targetPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q100 ${window.innerHeight/2} 100 0`
+    
+    const curve = {
+      initial: {
+          d: initialPath
+      },
+      enter: {
+          d: targetPath,
+          transition: {duration: 1, ease: [0.76, 0, 0.24, 1]}
+      },
+      exit: {
+          d: initialPath,
+          transition: {duration: 0.8, ease: [0.76, 0, 0.24, 1]}
+      }
+    }
+
     // 댓글
     const [content, setContent] = useState('');
     const [password, setPassword] = useState('');
@@ -37,10 +57,6 @@ const Reple = () => {
     // 댓글 불러오기
     const [list, setList] = useState([]);
 
-    const Replehide = () => {
-        gsap.to('#section3', { height: "0", y: "0", opacity: 0, duration: 1, display: "none" })
-    }
-
     useEffect(() => {
         axios.post("/api/reple/list")
             .then((res) => {
@@ -52,7 +68,7 @@ const Reple = () => {
             .catch((err) => {
                 console.log(err)
             })
-    }, []);
+    }, [onSubmit]);
 
     // 댓글 삭제 
 
@@ -64,18 +80,14 @@ const Reple = () => {
     }
 
     return (
-        <div id="section3">
+        <motion.div variants={curve} initial="initial" animate="enter" exit="exit" id="section3">
             <div className="comment_wrap">
                 <div className="top">
                     <h2>Comment</h2>
-                    <button
-                        onClick={() => { Replehide() }}
-                    >x</button>
                 </div>
                 <div className="list">
                     {list.map((item, key) => {
                         const isLeft = item.repleNum % 2 === 1;
-
                         return (
                             <div className={isLeft ? "chatbox boxleft" : "chatbox boxright"} key={key}>
                                 <p className={isLeft ? 'left' : 'right'}>
@@ -94,7 +106,7 @@ const Reple = () => {
                     <div className="write">
                         <div>
                             <input
-                                type="password"
+                                type="text"
                                 id='password'
                                 value={password}
                                 placeholder='비밀번호를 입력해주세요'
@@ -145,7 +157,7 @@ const Reple = () => {
 
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

@@ -75,3 +75,81 @@ section {
 button {
     cursor: pointer;
 }
+
+.overlayup {
+    width: 100%;
+    position: absolute;
+}
+
+.overlaydown {
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.black {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+
+    .up {
+        position: absolute;
+        width: 100%;
+        height: 50vh;
+    }
+
+    .down {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        height: 50vh;
+    }
+}
+
+// 스크롤바 
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000d2;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+/* Heart.css */
+
+.heart {
+    width: 50px;
+    height: 50px;
+    background-color: #ff938e;
+    position: fixed;
+    transform: rotate(-45deg);
+    margin: -25px 0 0 -25px;
+    transition: transform 0.2s ease-out;
+    pointer-events: none;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background-color: #ff938e;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -25px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 25px;
+}
