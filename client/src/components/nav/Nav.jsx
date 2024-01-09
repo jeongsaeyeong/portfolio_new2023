@@ -15,7 +15,7 @@ import port05 from '../../assets/img/port05.png'
 const Nav = ({ color, showPort, setIsActive, isActive, setColor, setTextColor }) => {
     const links = [
         {
-            title: "Home",
+            title: "Port1",
             href: "/",
             img: port01,
             port: 'port01',
@@ -23,7 +23,7 @@ const Nav = ({ color, showPort, setIsActive, isActive, setColor, setTextColor })
             textColor: '#000'
         },
         {
-            title: "Shop",
+            title: "Port2",
             href: "/shop",
             img: port02,
             port: 'port02',
@@ -31,7 +31,7 @@ const Nav = ({ color, showPort, setIsActive, isActive, setColor, setTextColor })
             textColor: '#ff8781'
         },
         {
-            title: "About Us",
+            title: "Port3",
             href: "/about",
             img: port03,
             port: 'port03',
@@ -39,7 +39,7 @@ const Nav = ({ color, showPort, setIsActive, isActive, setColor, setTextColor })
             textColor: '#fff'
         },
         {
-            title: "Lookbook",
+            title: "Port4",
             href: "/lookbook",
             img: port04,
             port: 'port04',
@@ -47,7 +47,7 @@ const Nav = ({ color, showPort, setIsActive, isActive, setColor, setTextColor })
             textColor: '#BA985B'
         },
         {
-            title: "Contact",
+            title: "Port5",
             href: "/contact",
             img: port05,
             port: 'port05',

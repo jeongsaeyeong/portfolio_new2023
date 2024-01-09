@@ -3,7 +3,6 @@ import gsap from 'gsap';
 import SplitType from 'split-type';
 import Header from '../components/Header/Header';
 import ChatHeader from '../components/Chat/chat/Header';
-import NavHeader from '../components/Chat/Nav/NavHeader';
 
 const Port = () => {
     // GSAP 용
@@ -28,19 +27,15 @@ const Port = () => {
         gsap.set('.i4', { y: 0, x: 0, opacity: 1 });
         gsap.set('.i5', { y: 0, x: 0, opacity: 1 });
 
-        gsap.set(".header button", { zIndex: 1, top: 0, position: "relative", height: "0px", display: "none", duration: 0.8, ease: "power2.inOut" });
-        gsap.set(".button #section04 .chatbutton", { zIndex: 1, top: 0, position: "relative", height: "0px", display: "none", duration: 0.8, ease: "power2.inOut" });
-        gsap.set(".button #section5 .button", { zIndex: 1, top: 0, position: "relative", height: "0px", display: "none", duration: 0.8, ease: "power2.inOut" });
-        gsap.set(".ham", { zIndex: 1, top: 0, position: "relative", height: "0px", duration: 0.8, ease: "power2.inOut" });
+        gsap.set(".box .header", { opacity: 0, zIndex: -1 });
 
         gsap.set(".main h2", { zIndex: 1, top: 0, position: "relative", opacity: 0, height: "0", duration: 0.8, ease: "power2.inOut" });
         gsap.set(".main p", { zIndex: 1, top: 0, position: "relative", height: "0px", opacity: 0, duration: 0.8, ease: "power2.inOut" });
 
-        gsap.set(".overlayup", { height: "0px", y: "0", opacity: 1, backgroundColor: color });
-        gsap.set(".overlaydown", { height: "0px", y: "100%", opacity: 1, backgroundColor: color });
+        gsap.set(".overlayup", { height: "0px", y: "0", opacity: 1, backgroundColor: color, zIndex: 900 });
+        gsap.set(".overlaydown", { height: "0px", y: "100%", opacity: 1, backgroundColor: color, zIndex: 900 });
 
         // chat 바꾼 거 
-
         gsap.set("#section3", { height: "0", y: "0", opacity: 0, display: "none" });
         gsap.set(".comment_wrap", { backgroundColor: color })
         gsap.set(".top h2", { color: textcolor })
@@ -61,7 +56,6 @@ const Port = () => {
 
     // port 들어가기 
     const showPort = (port) => {
-
         gsap.to(".overlayup", { height: "50%", duration: 0.8, delay: 1, ease: "power2.inOut" });
         gsap.to(".overlaydown", {
             height: "50%", y: "0", duration: 0.8, delay: 1, ease: "power2.inOut",
@@ -80,26 +74,25 @@ const Port = () => {
         setCurrentPort(port);
         setBlack('none');
 
+        gsap.to('.box .header', { opacity: 1, duration: 0.8, ease: "power4.inOut", zIndex: 1000 });
+
+        gsap.to(".overlayup", { height: "0", y: "0", duration: 0.8, ease: "power2.inOut" });
         gsap.to(".overlaydown", { height: "0", y: "0", duration: 0.8, ease: "power2.inOut" });
-        gsap.to(".header button", { zIndex: 1, top: 0, position: "relative", height: "40px", display: "block", delay: 0.5, duration: 0.3, ease: "power2.inOut" });
-        gsap.to(".button #section04 .chatbutton", { zIndex: 1, top: 0, position: "relative", height: "40px", display: "flex", delay: 0.5, duration: 0.3, ease: "power2.inOut" });
-        gsap.to(".button #section5 .button", { zIndex: 1, top: 0, position: "relative", height: "40px", display: "flex", delay: 0.5, duration: 0.3, ease: "power2.inOut" });
-        gsap.to(".ham", { zIndex: 1, top: 0, position: "relative", height: "30px", delay: 0.5, duration: 0.5, ease: "power2.inOut" });
 
         gsap.to(".main h2", { zIndex: 1, top: 0, position: "relative", height: "100%", opacity: 1, display: "block", delay: 1, duration: 0.5, ease: "power2.inOut" });
         gsap.to(".main p", { zIndex: 1, top: 0, position: "relative", height: "100%", opacity: 1, display: "block", delay: 1.8, duration: 0.5, ease: "power2.inOut" });
+        gsap.set(".bod .header", { zIndex: 1, position: "relative", height: "0px", duration: 0.8, ease: "power2.inOut" });
+
     };
 
     // 뒤로가기
     const backPage = (port) => {
         setShow(false)
 
-        gsap.to(".header button .chatbutton", { zIndex: 1, top: 0, position: "relative", height: "0px", display: "none", duration: 0.8, ease: "power2.inOut" });
-        gsap.to(".button #section04 .chatbutton", { zIndex: 1, top: 0, position: "relative", height: "0px", display: "none", duration: 0.8, ease: "power2.inOut" });
-        gsap.to(".button #section5 .button", { zIndex: 1, top: 0, position: "relative", height: "0px", display: "none", duration: 0.8, ease: "power2.inOut" });
-        gsap.to(".ham", { zIndex: 1, top: 0, position: "relative", height: "0px", duration: 0.8, ease: "power2.inOut" });
+        gsap.to(".box .header", { opacity: 0, duration: 0.8, ease: "power4.inOut", zIndex: -1 });
         gsap.to(".main h2", { zIndex: 1, top: 0, position: "relative", opacity: 0, height: "0", display: "none", duration: 0.8, ease: "power2.inOut" });
         gsap.to(".main p", { zIndex: 1, top: 0, position: "relative", height: "0px", opacity: 0, display: "none", duration: 0.8, ease: "power2.inOut" });
+        gsap.to(".overlayup", { height: "50%", duration: 0.8, ease: "power2.inOut" });
         gsap.to(".overlaydown", { height: "50%", duration: 0.8, ease: "power2.inOut" });
 
         gsap.to(".overlayup", { height: "0px", y: "0", opacity: 1, duration: 0.8, delay: 1.2, ease: "power2.inOut" });
@@ -143,17 +136,6 @@ const Port = () => {
         }, 1000)
 
     }
-
-    // 토글메뉴...인데 좀 고려를,, 수정을,, 
-    const toggleMenu = (e) => {
-        e.preventDefault();
-
-        const ulElements = document.querySelectorAll('.ham div ul');
-
-        ulElements.forEach((ulElement) => {
-            ulElement.style.display = ulElement.style.display === 'block' ? 'none' : 'block';
-        });
-    };
 
     const SplitText01 = () => {
         const targets = gsap.utils.toArray(".split");
@@ -204,7 +186,6 @@ const Port = () => {
         const targets = gsap.utils.toArray(".split");
 
         targets.forEach(target => {
-            // 부모 엘리먼트에 position: relative 추가
             gsap.set(target, { position: "relative" });
 
             let SplitClient = new SplitType(target, { type: "lines" });
@@ -246,16 +227,15 @@ const Port = () => {
             let SplitClient = new SplitType(target, { type: "lines, words, chars" });
             let chars = SplitClient.chars;
 
-            // 초기 상태 설정
             gsap.set(chars, { color: "#BA985B" });
 
             chars.forEach(function (char, index) {
                 gsap.to(char, {
-                    color: "#73e469", // 시작 색상을 투명으로 설정
+                    color: "#73e469",
                     duration: 2,
-                    delay: index * 0.1, // 각 글자마다 0.1초씩 지연
-                    repeat: -1, // 무한 반복
-                    yoyo: true, // 역방향으로도 재생되도록 설정
+                    delay: index * 0.1,
+                    repeat: -1,
+                    yoyo: true,
                 });
             });
         }, []);
@@ -287,7 +267,7 @@ const Port = () => {
 
     return (
         <>
-            <Header backgroundColor={color} color={textcolor} showPort={showPort} setColor={setColor} setTextColor={setTextColor} />
+            <Header backgroundColor={color} color={textcolor} showPort={showPort} setColor={setColor} setTextColor={setTextColor} backPage={backPage} />
             <div id="section1">
                 <div className={currentSection === 'first' ? 'first' : 'first none'}>
                     <div className="center__text">
@@ -364,30 +344,44 @@ const Port = () => {
                     <div className="box">
                         <div className="header">
                             <div>
-                                <button onClick={() => backPage('first')}>BACK</button>
+                                <button onClick={() => backPage('first')} style={{ color: textcolor }}>BACK</button>
                             </div>
                             <div className='button'>
-                                <ChatHeader />
-                                <NavHeader />
+                                <ChatHeader color={textcolor} backPage={backPage} />
                             </div>
                         </div>
                         <div className="main">
                             <h2>ADD PLUS</h2>
-                            <p>ADD PLUS 대학 종합 정보 포털 및 커뮤니티의 기능을 갖춘 사이트입니다.</p>
+                            <p>대학, 어디든 갈 수 있다!</p>
                         </div>
                     </div>
                     <div>
-                        <div className="img portimg01"></div>
+                        <div className="img portimg01">
+                            <ul className='button'>
+                                <li><a href="https://github.com/jeongsaeyeong/ADD-PLUS">GitHub</a></li>
+                                <li><a href="/">Site</a></li>
+                            </ul>
+                            <p className="imgtext">
+                                MAKE: React, sass, Node.js, MongoDB, Firebase<br />
+                                Position: 회원가입, 로그인, 커뮤니티 개발<br /><br />
+                                <span>
+                                    ADD PLUS는 3인 1조로 제작한 사이트로, 대학 종합 정보 포털 및 커뮤니티의 기능을 갖춘 사이트입니다.
+                                    Node.js와 MongoDB, Firebase를 사용하여 client와 server를 구축하였습니다.
+                                    저는 ADD-PLUS를 직접 기획하여 능동적으로 팀원을 모았으며, 전체 디렉팅과 업무 분담도 맡았습니다.
+                                </span>
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div className={currentPort === 'port02' ? 'port02' : 'port02 none'}>
                     <div className="box">
                         <div className="header">
                             <div>
-                                <button onClick={() => backPage('second')}>BACK</button>
+                                <button onClick={() => backPage('second')} style={{ color: textcolor }}>BACK</button>
                             </div>
-                            <ChatHeader />
-                            <NavHeader />
+                            <div className='button'>
+                                <ChatHeader color={textcolor} backPage={backPage} />
+                            </div>
                         </div>
                         <div className="main">
                             <h2>ADD PLUS</h2>
@@ -395,18 +389,23 @@ const Port = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="img portimg02"></div>
+                        <div className="img portimg02">
+                            <ul className='button'>
+                                <li><a href="/">GitHub</a></li>
+                                <li><a href="/">Site</a></li>
+                            </ul>
+                            <p className="imgtext"></p>
+                        </div>
                     </div>
                 </div>
                 <div className={currentPort === 'port03' ? 'port03' : 'port03 none'}>
                     <div className="box">
                         <div className="header">
                             <div>
-                                <button onClick={() => backPage('third')}>BACK</button>
+                                <button onClick={() => backPage('third')} style={{ color: textcolor }}>BACK</button>
                             </div>
                             <div className='button'>
-                                <ChatHeader />
-                                <NavHeader />
+                                <ChatHeader color={textcolor} backPage={backPage} />
                             </div>
                         </div>
                         <div className="main">
@@ -415,18 +414,23 @@ const Port = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="img portimg03"></div>
+                        <div className="img portimg03">
+                            <ul className='button'>
+                                <li><a href="/">GitHub</a></li>
+                                <li><a href="/">Site</a></li>
+                            </ul>
+                            <p className="imgtext"></p>
+                        </div>
                     </div>
                 </div>
                 <div className={currentPort === 'port04' ? 'port04' : 'port04 none'}>
                     <div className="box">
                         <div className="header">
                             <div>
-                                <button onClick={() => backPage('forth')}>BACK</button>
+                                <button onClick={() => backPage('forth')} style={{ color: textcolor }}>BACK</button>
                             </div>
                             <div className='button'>
-                                <ChatHeader />
-                                <NavHeader />
+                                <ChatHeader color={textcolor} backPage={backPage} />
                             </div>
                         </div>
                         <div className="main">
@@ -435,18 +439,23 @@ const Port = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="img portimg04"></div>
+                        <div className="img portimg04">
+                            <ul className='button'>
+                                <li><a href="/">GitHub</a></li>
+                                <li><a href="/">Site</a></li>
+                            </ul>
+                            <p className="imgtext"></p>
+                        </div>
                     </div>
                 </div>
                 <div className={currentPort === 'port05' ? 'port05' : 'port05 none'}>
                     <div className="box">
                         <div className="header">
                             <div>
-                                <button onClick={() => backPage('fifth')}>BACK</button>
+                                <button onClick={() => backPage('fifth')} style={{ color: textcolor }}>BACK</button>
                             </div>
                             <div className='button'>
-                                <ChatHeader />
-                                <NavHeader />
+                                <ChatHeader color={textcolor} backPage={backPage} />
                             </div>
                         </div>
                         <div className="main">
@@ -455,7 +464,13 @@ const Port = () => {
                         </div>
                     </div>
                     <div>
-                        <div className="img portimg05"></div>
+                        <div className="img portimg05">
+                            <ul className='button'>
+                                <li><a href="/">GitHub</a></li>
+                                <li><a href="/">Site</a></li>
+                            </ul>
+                            <p className="imgtext"></p>
+                        </div>
                     </div>
                 </div>
             </div>

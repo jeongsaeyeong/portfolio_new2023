@@ -23,14 +23,15 @@
         }
 
         .center__text {
-            width: 80%;
+            width: 81%;
             position: relative;
 
             div {
                 display: flex;
             }
-            
+
         }
+
         .center__text .t1 .line .word:nth-child(2) .char:nth-child(1) {
             padding-left: 13vw;
         }
@@ -197,7 +198,8 @@
             position: absolute;
             left: 26vw;
             top: 12.5vw;
-            transform: rotate(35deg); /* 35도로 기울이기 */
+            transform: rotate(35deg);
+            /* 35도로 기울이기 */
         }
 
         .center__text .i3 {

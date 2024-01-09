@@ -5,7 +5,7 @@ import { opacity, background } from '../../js/anim';
 import Nav from '../nav/Nav';
 
 
-const Header = ({ backgroundColor, color, showPort, setColor, setTextColor }) => {
+const Header = ({ backgroundColor, color, showPort, setColor, setTextColor, backPage }) => {
     const [isActive, setIsActive] = useState(false);
     const [BackgroundColor, setBackgroundColor] = useState(backgroundColor);
     const [textColor, settextColor] = useState(color);
@@ -19,6 +19,10 @@ const Header = ({ backgroundColor, color, showPort, setColor, setTextColor }) =>
         return () => clearTimeout(timeoutId);
     }, [backgroundColor]);
 
+    useEffect(() => {
+        setIsActive(false)
+    }, [backPage])
+
     return (
         <div className='nav_header' style={{ backgroundColor: BackgroundColor, color: textColor }}>
             <div className='bar'>
@@ -30,7 +34,6 @@ const Header = ({ backgroundColor, color, showPort, setColor, setTextColor }) =>
                     </div>
                 </div>
                 <motion.div variants={opacity} animate={!isActive ? "open" : "closed"} className='shopContainer'>
-                    <p className='shop'>Shop</p>
                     <div className='el'>
                         <p>Jeongsaeyeong</p>
                     </div>

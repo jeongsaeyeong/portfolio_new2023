@@ -3,14 +3,14 @@ import Nav from './Nav/Nav';
 import { AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
-const ChatHeader = () => {
+const ChatHeader = ({ color, backPage }) => {
   const [isActive, setIsActive] = useState(false);
   const location = useLocation();
   const pathname = location.pathname;
 
   useEffect(() => {
     if (isActive) setIsActive(false)
-  }, [pathname])
+  }, [pathname, backPage])
 
   return (
     <>
@@ -18,7 +18,7 @@ const ChatHeader = () => {
         <div className='main'>
           <div className='header'>
             <div onClick={() => { setIsActive(!isActive) }} className='chatbutton'>
-              <div className='text'>Chat</div>
+              <div className='text' style={{ color: color }}>Chat</div>
             </div>
           </div>
 

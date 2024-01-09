@@ -63,9 +63,8 @@
     }
 
     .header {
-        padding: 30px;
+        padding-top: 30px;
         position: fixed;
-        right: 0;
         z-index: 1;
         top: 0;
         left: 150px;
@@ -75,18 +74,11 @@
             height: 40px;
             margin-left: 10px;
             border-radius: 100px;
-            background-color: #282828;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.4s;
-            color: #fff;
-        }
-
-        .chatbutton:hover {
-            background-color: #00000000;
-            border: 1px solid #000;
             color: #000;
         }
 
@@ -220,7 +212,7 @@
         p {
             font-size: 3vw;
         }
-        
+
         .text {
             padding-right: 15px;
             color: #fff;
