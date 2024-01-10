@@ -17,4 +17,16 @@
 
 ## 어떻게 구현했나 
 
-### 초기 GSAP 세팅
+### useState 세팅
+ 각 애니메이션을 제어할 useState를 만들었다. 
+
+ 1. currentSection은 section1의 메인페이지 위치를 관리한다.
+ 2. currentPort는 section2의 포트폴리오 위치를 관리한다.
+ 3. color, textcolor,chatcolor 는 각각 변화하는 backGorund나 color을 포트폴리오에 맞게 변경한다.
+
+ 특정 이미지나 nav를 눌렀을 때 useState를 사용하여 계속 새로 색 코드를 바꾸고, 메인페이지와 포트폴리오의 className을 넣어줄 수 있다. 
+ 
+### gsap 세팅 
+
+1. gsap.set()을 사용하여 기본 상태를 세팅한다. useEffect를 사용해 color가 변경될 때마다 기본 세팅이 된다.
+2. 
