@@ -1,26 +1,26 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { slide, curve } from '../js/anim'; 
+import { slide, curve } from '../js/anim';
 import gsap from 'gsap';
 import { motion } from 'framer-motion';
 
 const Reple = () => {
 
-    const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight/2} 100 0`
-    const targetPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q100 ${window.innerHeight/2} 100 0`
-    
+    const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight / 2} 100 0`
+    const targetPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q100 ${window.innerHeight / 2} 100 0`
+
     const curve = {
-      initial: {
-          d: initialPath
-      },
-      enter: {
-          d: targetPath,
-          transition: {duration: 1, ease: [0.76, 0, 0.24, 1]}
-      },
-      exit: {
-          d: initialPath,
-          transition: {duration: 0.8, ease: [0.76, 0, 0.24, 1]}
-      }
+        initial: {
+            d: initialPath
+        },
+        enter: {
+            d: targetPath,
+            transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
+        },
+        exit: {
+            d: initialPath,
+            transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] }
+        }
     }
 
     // 댓글
@@ -31,7 +31,7 @@ const Reple = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        if (content === "" && password === "") {
+        if (content === "" || password === "") {
             return alert("빈칸을 모두 채워주세요!")
         }
 
@@ -44,6 +44,10 @@ const Reple = () => {
             .then((res) => {
                 if (res.data.success) {
                     alert("댓글 작성이 완료되었습니다.")
+                    setContent('')
+                    setPassword('')
+
+                    fetchComments();
                 } else {
                     alert("댓글 작성이 실패하였습니다.")
                 }
@@ -58,9 +62,12 @@ const Reple = () => {
     const [list, setList] = useState([]);
 
     useEffect(() => {
+        fetchComments();
+    }, []);
+
+    const fetchComments = () => {
         axios.post("/api/reple/list")
             .then((res) => {
-                console.log(res)
                 if (res.data.success) {
                     setList([...res.data.list]);
                 }
@@ -68,15 +75,43 @@ const Reple = () => {
             .catch((err) => {
                 console.log(err)
             })
-    }, [onSubmit]);
+    }
 
     // 댓글 삭제 
 
     const [show, setShow] = useState(false);
     const [deletepassword, setDeletepassword] = useState('');
+    const [repleId, setRepleId] = useState('')
+
+    useEffect(() => {
+        console.log(repleId)
+    }, [repleId])
 
     const onDelete = (e) => {
+        e.preventDefault();
 
+        if (deletepassword === '') {
+            alert("비밀번호를 입력해주세요.")
+        }
+
+        let body = {
+            password: deletepassword,
+            repleId: repleId
+        }
+
+        axios.post("/api/reple/delete", body)
+            .then((res) => {
+                if (res.data.success) {
+                    alert("댓글 삭제가 완료되었습니다.")
+                    setDeletepassword('')
+                    fetchComments();
+                    setShow(false)
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                alert("비밀번호를 확인해주세요.");
+            });
     }
 
     return (
@@ -88,25 +123,24 @@ const Reple = () => {
                 <div className="list">
                     {list.map((item, key) => {
                         const isLeft = item.repleNum % 2 === 1;
+                        console.log(item)
                         return (
                             <div className={isLeft ? "chatbox boxleft" : "chatbox boxright"} key={key}>
                                 <p className={isLeft ? 'left' : 'right'}>
                                     {item.content}
                                     <button
-                                        onClick={() => setShow(!show)}
+                                        onClick={() => { setRepleId(item._id); setShow(!show); }}
                                     >x</button>
-
                                 </p>
                             </div>
                         );
                     })}
                 </div>
                 <div className="push">
-
                     <div className="write">
                         <div>
                             <input
-                                type="text"
+                                type="password"
                                 id='password'
                                 value={password}
                                 placeholder='비밀번호를 입력해주세요'
@@ -134,7 +168,7 @@ const Reple = () => {
 
                     <div className={`delete ${show ? 'show' : 'none'}`}>
                         <input
-                            type="text"
+                            type="password"
                             id='deletepassword'
                             value={deletepassword}
                             placeholder='비밀번호를 입력해주세요'

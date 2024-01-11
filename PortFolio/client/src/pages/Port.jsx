@@ -275,11 +275,11 @@ const Port = () => {
                         <div className="split t2">GOLD IS UNLESS</div>
                         <div className="split t3">YOU NEED</div>
                         <div className="split t4">SOME EXERCISE</div>
-                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>youtube</span></div></div>
-                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
-                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>youtube</span></div></div>
-                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#BA985B"); setChatColor("#BA985B") }}><div><span>youtube</span></div></div>
-                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
+                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>Node.js</span></div></div>
+                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>Youtube</span></div></div>
+                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>PHP</span></div></div>
+                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#BA985B"); setChatColor("#BA985B") }}><div><span>Port04</span></div></div>
+                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>Port05</span></div></div>
                     </div>
                 </div>
                 <div className={currentSection === 'second' ? 'second' : 'second none'}>
@@ -288,11 +288,11 @@ const Port = () => {
                         <div className="split t2">GOLD IS UNLESS</div>
                         <div className="split t3">YOU NEED</div>
                         <div className="split t4">SOME EXERCISE</div>
-                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>youtube</span></div></div>
-                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
-                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>youtube</span></div></div>
-                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#fff"); setChatColor("#BA985B") }}><div><span>youtube</span></div></div>
-                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
+                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>Node.js</span></div></div>
+                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>Youtube</span></div></div>
+                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>PHP</span></div></div>
+                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#fff"); setChatColor("#BA985B") }}><div><span>Port04</span></div></div>
+                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>Port05</span></div></div>
                     </div>
                 </div>
                 <div className={currentSection === 'third' ? 'third' : 'third none'}>
@@ -301,11 +301,11 @@ const Port = () => {
                         <div className="split t2">GOLD IS UNLESS</div>
                         <div className="split t3">YOU NEED</div>
                         <div className="split t4">SOME EXERCISE</div>
-                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>youtube</span></div></div>
-                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
-                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>youtube</span></div></div>
-                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#fff"); setChatColor("#BA985B") }}><div><span>youtube</span></div></div>
-                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
+                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>Node.js</span></div></div>
+                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>Youtube</span></div></div>
+                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>PHP</span></div></div>
+                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#fff"); setChatColor("#BA985B") }}><div><span>Port04</span></div></div>
+                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>Port05</span></div></div>
                     </div>
                 </div>
                 <div className={currentSection === 'forth' ? 'forth' : 'forth none'}>
@@ -314,11 +314,11 @@ const Port = () => {
                         <div className="split t2">GOLD IS UNLESS</div>
                         <div className="split t3">YOU NEED</div>
                         <div className="split t4"> SOME EXERCISE</div>
-                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>youtube</span></div></div>
-                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
-                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>youtube</span></div></div>
-                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#fff"); setChatColor("#BA985B") }}><div><span>youtube</span></div></div>
-                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
+                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>Node.js</span></div></div>
+                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>Youtube</span></div></div>
+                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>PHP</span></div></div>
+                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#fff"); setChatColor("#BA985B") }}><div><span>Port04</span></div></div>
+                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>Port05</span></div></div>
                     </div>
                 </div>
                 <div className={currentSection === 'fifth' ? 'fifth' : 'fifth none'}>
@@ -327,11 +327,11 @@ const Port = () => {
                         <div className="split t2">GOLDISUNLESS</div>
                         <div className="split t3">YOU NEED</div>
                         <div className="split t4">SOME EXERCISE</div>
-                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>youtube</span></div></div>
-                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
-                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>youtube</span></div></div>
-                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#fff"); setChatColor("#BA985B") }}><div><span>youtube</span></div></div>
-                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>youtube</span></div></div>
+                        <div className="img i1" onClick={() => { showPort('port01'); setColor('#fff'); setTextColor("#000"); setChatColor("#cccccc") }}><div><span>Node.js</span></div></div>
+                        <div className="img i2" onClick={() => { showPort('port02'); setColor('#D9F1F1'); setTextColor("#ff8781"); setChatColor("#fff") }}><div><span>Youtube</span></div></div>
+                        <div className="img i3" onClick={() => { showPort('port03'); setColor('#CBB4A7'); setTextColor("#fff"); setChatColor("#444032") }}><div><span>PHP</span></div></div>
+                        <div className="img i4" onClick={() => { showPort('port04'); setColor('#33392F'); setTextColor("#fff"); setChatColor("#BA985B") }}><div><span>Port04</span></div></div>
+                        <div className="img i5" onClick={() => { showPort('port05'); setColor('#E1E1E1'); setTextColor("#000"); setChatColor("#fff") }}><div><span>Port05</span></div></div>
                     </div>
                 </div>
             </div>
@@ -360,6 +360,7 @@ const Port = () => {
                             <ul className='button'>
                                 <li><a href="https://github.com/jeongsaeyeong/ADD-PLUS">GitHub</a></li>
                                 <li><a href="/">Site</a></li>
+                                <li><a href="https://www.notion.so/ADD-00c0a95e984644ae88acf7a657367ffe?pvs=4">Notion</a></li>
                             </ul>
                             <p className="imgtext">
                                 MAKE: React, sass, Node.js, MongoDB, Firebase<br />
@@ -384,17 +385,25 @@ const Port = () => {
                             </div>
                         </div>
                         <div className="main">
-                            <h2>ADD PLUS</h2>
-                            <p>ADD PLUS 대학 종합 정보 포털 및 커뮤니티의 기능을 갖춘 사이트입니다.</p>
+                            <h2>Silence Youtube</h2>
+                            <p>가사 없는 노래들을 추천하는 사이트입니다.</p>
                         </div>
                     </div>
                     <div>
                         <div className="img portimg02">
                             <ul className='button'>
-                                <li><a href="/">GitHub</a></li>
-                                <li><a href="/">Site</a></li>
+                                <li><a href="https://github.com/jeongsaeyeong/ADD-PLUS">GitHub</a></li>
+                                <li><a href="https://main--sunny-tanuki-99438d.netlify.app/">Site</a></li>
                             </ul>
-                            <p className="imgtext"></p>
+                            <p className="imgtext">
+                                MAKE: React, sass, YoutubeApI<br />
+                                Position: 기획, 개발<br /><br />
+                                <span>
+                                    Silence Youtube는 가사 없는 음악을 다루는 사이트입니다.
+                                    Youtube API를 사용하여 검색, 유튜브 채널 등의 기능을 구현하였습니다.
+                                    React, sass, YoutubeAPI 등을 사용합니다.
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -409,17 +418,26 @@ const Port = () => {
                             </div>
                         </div>
                         <div className="main">
-                            <h2>ADD PLUS</h2>
-                            <p>ADD PLUS 대학 종합 정보 포털 및 커뮤니티의 기능을 갖춘 사이트입니다.</p>
+                            <h2>CJJD</h2>
+                            <p>취중진담은 알코올 커뮤니티입니다.</p>
                         </div>
                     </div>
                     <div>
                         <div className="img portimg03">
                             <ul className='button'>
-                                <li><a href="/">GitHub</a></li>
-                                <li><a href="/">Site</a></li>
+                                <li><a href="https://github.com/jeongsaeyeong/CJJD">GitHub</a></li>
+                                <li><a href="http://zeroin01.dothome.co.kr/php03-CJJD/php/main/main.php">Site</a></li>
+                                <li><a href="https://www.notion.so/331be5929e64497f82d578cf1fd949fb?pvs=4">Notion</a></li>
                             </ul>
-                            <p className="imgtext"></p>
+                            <p className="imgtext">
+                                MAKE: PHP, HTML, CSS, SQL<br />
+                                Position: 기획, 마이페이지, 로그인, 회원가입 등<br /><br />
+                                <span>
+                                    취중진담은 3인 1조로 제작한 사이트로, 알코올 커뮤니티의 기능을 갖춘 사이트입니다.
+                                    SQL을 사용하여 데이터베이스에 데이터를 올리고 불러와 적절히 사용하였습니다.
+                                    저는 기획서를 작성 및 일정관리를 주도했으며, 마이페이지 제작과 로그인, 회원가입을 제작하였습니다.
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </div>

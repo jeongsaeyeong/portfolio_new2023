@@ -1,2 +1,6 @@
-client/node_modules
-server/node_modules
+/PortFolio/server/node_modules
+/PortFolio/node_modules
+/PortFolio/package-lock.json
+
+/PortFolio/client/node_modules
+/PortFolio/client/package-lock.json
