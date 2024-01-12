@@ -39,7 +39,7 @@
   
 </details>
 
-### 댓글 만들기 
+### 댓글  
 
 <details>
     <summary>Setting</summary>
@@ -68,23 +68,96 @@
   </details>
  </details>
 
-<h3>useState</h3>
+<h3>댓글 쓰기</h3>
 
+1) useState 만들기 
 `
   const [content, setContent] = useState(''); <br />
   const [password, setPassword] = useState('');
 `
 
 댓글의 내용을 받아오는 content와, 삭제 기능을 위한 password를 함께 받는다. 
+각각 input을 통해 받아오게 되며 각각의 value를 content와 password로 설정해야 변하는 것을 확인할 수 있다.
 
-<pre><code>
- <input
-    type="text"
-    id='content'
-    value={content}
-    placeholder='내용을 입력해주세요'
-    onChange={(e) => {
-        setContent(e.currentTarget.value)
-    }}
-/>
-</code></pre>
+2) axios로 server에 보내기 
+
+댓글을 작성한 뒤 버튼을 누르면, onSubmit이라는 함수가 작동된다. 
+content와 password의 값이 공백이 아니어야 입력이 가능하다.
+후에 body를 만들어 content와 password의 값을 한 데 묶은 뒤, axios로 서버에 함께 보낸다.
+이때 돌아온 값이 success면 댓글 작성 완료를 알린다. 
+참고로 댓글을 새로 작성할 때마다 list를 불러오는 함수인 fetchComments를 실행해야 한다.
+
+3) server schema 만들기
+
+우선 server와 client를 연결하기 위해서는 express 사용해야 한다. 
+이 연결을 위해 path라는 다리를 놓고, 데이터베이스는 mongoDb이며 제어하기 위해 mongoose를 사용한다.
+express는 app으로 설정하며 port 번호는 3000번을 이용한다. 
+
+MongoDB에 데이터를 넣을 때는 Schema 라는 걸 사용한다. 
+
+<details>
+<summary>스키마(Schema)</summary>
+
+정의: 스키마는 데이터베이스에서 전체 데이터 구조를 나타내는 개념이다.
+내용: 스키마는 테이블, 뷰, 프로시저, 함수 등의 데이터베이스 객체들 간의 관계, 제약 조건, 데이터 타입 등을 정의한다.
+용도: 데이터베이스의 설계를 나타내며, 데이터의 구조와 조작 방법에 대한 전반적인 규칙을 정의한다.
+
+</details>
+
+<details>
+<summary>테이블(Table)</summary>
+
+정의: 테이블은 실제 데이터가 저장되는 공간으로, 행과 열로 이루어진 이차원 구조이다.
+내용: 테이블은 실제 데이터를 포함하며, 각 열(Column)은 특정 데이터 유형을 나타내고, 각 행(Row)은 실제 데이터 레코드를 나타낸다.
+용도: 데이터베이스에서 정보를 구조적으로 저장하고 관리하기 위한 기본 단위로 사용된다.
+</details>
+
+Reple Schema에서는 password와 content, repleNum의 구성을 가진다. 
+
+이후 index.js에서
+`const { Reple } = require("./server/model/Reple.js");`
+으로 불러오면 된다.
+
+4) mongoDB연결하기
+
+Express.js 애플리케이션에서 웹 서버를 시작하는 메서드인 listen을 사용해 port번호에 접속한다.
+mongoDB와 연겨랗기 위해서는 connect라는 것을 사용하며, 연결이 성공적으로 이루어진 뒤 connect 됐음을 알린다. 
+
+> 주의점
+* Network Access의 주소가 0.0.0.0으로 설정되어 있어야 접근이 가능하다. 
+* 사용자 권한이 read와 write 모두 설정되어 있는지 확인해야 한다. 
+
+5) DB에 입력하기 
+
+* `"/api/reple/submit"` 주소로 server와 client가 연결되면, req와 res를 생성할 수 있다. 
+* 이때 body에서 보내온 것은 password와 content이며, repleNum은 따로 입력을 해주어야 한다. 
+* 새롭게 Counter schema를 만들어 repleNum을 만들어준다. 
+* req.body.repleNum에 현재 counter의 repelNum을 입력한다.
+* 이후 Reple 스키마에 req.body를 넣어 새 데이터를 생성하고, 저장시킨다. 
+* Counter의 repleNum을 updateOne 메서드를 써 증가시키고 res에 json 형식으로 true를 보낸다. 
+* 혹시라도 오류가 발생하면 false를 보낸다. 
+
+<h3>댓글 불러오기</h3>
+
+1) 댓글을 불러온 뒤 담을 useState, List를 만들어준다.
+2) fetchComments함수를 만들어 axios로 list를 server에 요청한다.
+3) Reple에서 find를 사용해 모든 정보를 찾아 list에 넣고 client로 반환한다.
+4) 반환된 정보를 map을 사용해 뿌려준다. 
+
+<h3> 댓글 삭제하기 </h3>
+
+1) 필요한 데이터 받아오기
+
+* 삭제를 위해 입력하는 비밀번호
+* 삭제 버튼을 누른 댓글의 아이디값
+
+input을 사용해 비밀번호를 받아오면 되며, repleId는 useState를 만들어 x를 클릭한 댓글의 Id값을 저장시켜준다. 
+deletepassword의 내용이 비어있는지 확인한 뒤, body를 만들어 password와 repleId를 담는다. 
+axios로 보내준다.
+무사히 success를 받아오면 다시 한 번 fetchComments를 사용해 댓글을 업데이트 시켜준다. 
+
+2) 댓글 삭제
+
+Reple에서 _id가 req.body의 repleId와 일치하는 것을 찾는다.
+그 일치하는 댓글을 reple이라고 한다. 
+reple의 password와 req.body의 password의 값이 일치하면 댓글 삭제를 진행한다. 
