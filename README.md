@@ -41,27 +41,27 @@
 
 ### 댓글 만들기 
 세팅은 아래와 같다. 
-
 <details>
-  <summary>Client</summary>
- 
- 1) axios
- 2) firebase
- 3) http-proxy-middleware
+  <details>
+    <summary>Client</summary>
+   
+   1) axios
+   2) firebase
+   3) http-proxy-middleware
+    
+  </details>
   
-</details>
-
-<details>
-  <summary>server</summary>
- 
- 1) express
- 2) mongoose
- 3) multer
- 4) nodemon
- 5) path
-
-이때 package.json의   "scripts"의  "start"는 "node index.js" nodemon index.js로 변경한다. 이러면 서버에 수정사항이 생길 때마다 Teminal에 곧바로 보여주기 때문에 수월히 개발 가능하다. 
+  <details>
+    <summary>server</summary>
+   
+   1) express
+   2) mongoose
+   3) multer
+   4) nodemon
+   5) path
   
-</details>
- 
+  이때 package.json의   "scripts"의  "start"는 "node index.js" nodemon index.js로 변경한다. 이러면 서버에 수정사항이 생길 때마다 Teminal에 곧바로 보여주기 때문에 수월히 개발 가능하다. 
+    
+  </details>
+ </details>
 
