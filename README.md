@@ -40,8 +40,10 @@
 </details>
 
 ### 댓글 만들기 
-세팅은 아래와 같다. 
+
 <details>
+    <summary>Setting</summary>
+
   <details>
     <summary>Client</summary>
    
@@ -60,8 +62,27 @@
    4) nodemon
    5) path
   
-  이때 package.json의   "scripts"의  "start"는 "node index.js" nodemon index.js로 변경한다. 이러면 서버에 수정사항이 생길 때마다 Teminal에 곧바로 보여주기 때문에 수월히 개발 가능하다. 
+  이때 package.json의   "scripts"의  "start"는 "node index.js" nodemon index.js로 변경한다.<br />
+  이러면 서버에 수정사항이 생길 때마다 Teminal에 곧바로 보여주기 때문에 수월히 개발 가능하다. 
     
   </details>
  </details>
 
+<h3>useState</h3>
+
+`
+  const [content, setContent] = useState(''); <br />
+  const [password, setPassword] = useState('');
+`
+
+댓글의 내용을 받아오는 content와, 삭제 기능을 위한 password를 함께 받는다. 
+
+ <input
+    type="text"
+    id='content'
+    value={content}
+    placeholder='내용을 입력해주세요'
+    onChange={(e) => {
+        setContent(e.currentTarget.value)
+    }}
+/>
