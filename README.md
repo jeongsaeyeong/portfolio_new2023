@@ -77,6 +77,7 @@
 
 댓글의 내용을 받아오는 content와, 삭제 기능을 위한 password를 함께 받는다. 
 
+`
  <input
     type="text"
     id='content'
@@ -86,3 +87,4 @@
         setContent(e.currentTarget.value)
     }}
 />
+`
